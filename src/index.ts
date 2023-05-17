@@ -1624,7 +1624,12 @@ function FlatpickrInstance(
 
   function onBlur(e: FocusEvent) {
     const isInput = e.target === self._input;
-    const valueChanged = self._input.value.trimEnd() !== getDateStr();
+    let valueChanged = true;
+    
+    if (self.config.altInput) {
+      const hiddenInputValue = self.element.getAttribute('value') as string;
+      valueChanged = self._input.value.trimEnd() !== self.formatDate(new Date(hiddenInputValue), self.config.altFormat);
+    }
 
     if (
       isInput &&
