@@ -1846,28 +1846,6 @@ function FlatpickrInstance(
 
           break;
 
-        case 9:
-          // if (isTimeObj) {
-          //   const elems = ([
-          //     self.hourElement,
-          //     self.minuteElement,
-          //     self.secondElement,
-          //     self.amPM,
-          //   ] as Node[])
-          //     .concat(self.pluginElements)
-          //     .filter((x) => x) as HTMLInputElement[];
-
-          //   const i = elems.indexOf(eventTarget as HTMLInputElement);
-
-          //   if (i !== -1) {
-          //     const target = elems[i + (e.shiftKey ? -1 : 1)];
-          //     e.preventDefault();
-          //     (target || self._input).focus();
-          //   }
-          // }
-
-          break;
-
         default:
           break;
       }
