@@ -1964,6 +1964,9 @@ function FlatpickrInstance(
       positionCalendar();
   }
 
+  /**
+   * Method to manage the tabindex value of interactive elements, based if is open or closed
+   */
   function manageElementsTabindex() {
     if (self.monthsDropdownContainer !== undefined) {
       self.monthsDropdownContainer.tabIndex = self.isOpen ? 0 : -1;
@@ -2960,6 +2963,7 @@ function FlatpickrInstance(
         return;
       }
 
+      // When pressing tab to focus on days container, make sure an available day is focused
       if (e.key === "Tab" && isNextMonth) {
         if (e.shiftKey) return;
         e.preventDefault();
