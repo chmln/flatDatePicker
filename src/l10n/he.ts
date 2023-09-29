@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Hebrew: CustomLocale = {
+  nextMonth: "החודש הבא",
+  prevMonth: "החודש הקודם",
+  ariaLabelCalendar: "לוח שנה",
   weekdays: {
     shorthand: ["א", "ב", "ג", "ד", "ה", "ו", "ש"],
     longhand: ["ראשון", "שני", "שלישי", "רביעי", "חמישי", "שישי", "שבת"],

@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Czech: CustomLocale = {
+  nextMonth: "Příští měsíc",
+  prevMonth: "Minulý měsíc",
+  ariaLabelCalendar: "Kalendář",
   weekdays: {
     shorthand: ["Ne", "Po", "Út", "St", "Čt", "Pá", "So"],
     longhand: [

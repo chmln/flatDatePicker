@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Polish: CustomLocale = {
+  nextMonth: "Następny miesiąc",
+  prevMonth: "Poprzedni miesiąc",
+  ariaLabelCalendar: "Kalendarz",
   weekdays: {
     shorthand: ["Nd", "Pn", "Wt", "Śr", "Cz", "Pt", "So"],
     longhand: [

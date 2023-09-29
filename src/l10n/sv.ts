@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Swedish: CustomLocale = {
+  nextMonth: "Nästa månad",
+  prevMonth: "Förra månaden",
+  ariaLabelCalendar: "Kalender",
   firstDayOfWeek: 1,
   weekAbbreviation: "v",
 

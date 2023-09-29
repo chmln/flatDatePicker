@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Indonesian: CustomLocale = {
+  nextMonth: "Bulan depan",
+  prevMonth: "Bulan sebelumnya",
+  ariaLabelCalendar: "Kalender",
   weekdays: {
     shorthand: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
     longhand: ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"],

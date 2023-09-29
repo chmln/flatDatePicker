@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Estonian: CustomLocale = {
+  nextMonth: "Järgmine kuu",
+  prevMonth: "Eelmine kuu",
+  ariaLabelCalendar: "Kalender",
   weekdays: {
     shorthand: ["P", "E", "T", "K", "N", "R", "L"],
     longhand: [

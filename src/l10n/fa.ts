@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Persian: CustomLocale = {
+  nextMonth: "ماه بعدی",
+  prevMonth: "ماه گذشته",
+  ariaLabelCalendar: "تقویم",
   weekdays: {
     shorthand: ["یک", "دو", "سه", "چهار", "پنج", "جمعه", "شنبه"],
     longhand: [

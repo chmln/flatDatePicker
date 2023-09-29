@@ -1,4 +1,7 @@
 export type Locale = {
+  nextMonth: string,
+  prevMonth: string,
+  ariaLabelCalendar: string,
   weekdays: {
     shorthand: [string, string, string, string, string, string, string];
     longhand: [string, string, string, string, string, string, string];
@@ -75,6 +78,9 @@ export type CustomLocale = {
   minuteAriaLabel?: string;
   amPM?: Locale["amPM"];
   time_24hr?: Locale["time_24hr"];
+  nextMonth: string,
+  prevMonth: string,
+  ariaLabelCalendar: string,
   weekdays: {
     shorthand: [string, string, string, string, string, string, string];
     longhand: [string, string, string, string, string, string, string];

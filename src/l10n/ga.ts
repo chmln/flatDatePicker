@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Irish: CustomLocale = {
+  nextMonth: "An mhí seo chugainn",
+  prevMonth: "An mhí seo caite",
+  ariaLabelCalendar: "An Féilire",
   firstDayOfWeek: 1,
 
   weekdays: {

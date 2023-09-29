@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Greek: CustomLocale = {
+  nextMonth: "Τον επόμενο μήνα",
+  prevMonth: "Τον προηγούμενο μήνα",
+  ariaLabelCalendar: "Ημερολόγιο",
   weekdays: {
     shorthand: ["Κυ", "Δε", "Τρ", "Τε", "Πέ", "Πα", "Σά"],
     longhand: [

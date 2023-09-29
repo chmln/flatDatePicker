@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Kurdish: CustomLocale = {
+  nextMonth: "مانگای داهاتو",
+  prevMonth: "مانگی پێشوو",
+  ariaLabelCalendar: "هەفتۆ",
   weekdays: {
     shorthand: [
       "یەکشەممە",

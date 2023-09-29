@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Bulgarian: CustomLocale = {
+  nextMonth: "Следващия месец",
+  prevMonth: "Предишния месец",
+  ariaLabelCalendar: "Календар",
   weekdays: {
     shorthand: ["Нд", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
     longhand: [

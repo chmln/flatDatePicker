@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Turkish: CustomLocale = {
+  nextMonth: "Gelecek ay",
+  prevMonth: "Önceki ay",
+  ariaLabelCalendar: "Takvim",
   weekdays: {
     shorthand: ["Paz", "Pzt", "Sal", "Çar", "Per", "Cum", "Cmt"],
     longhand: [

@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Sinhala: CustomLocale = {
+  nextMonth: "මාසය ඉරණයේ",
+  prevMonth: "පෙර මාසය",
+  ariaLabelCalendar: "දින දර්ශනය",
   weekdays: {
     shorthand: ["ඉ", "ස", "අ", "බ", "බ්‍ර", "සි", "සෙ"],
     longhand: [

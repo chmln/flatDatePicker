@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Malaysian: CustomLocale = {
+  nextMonth: "Bulan depan",
+  prevMonth: "Bulan sebelumnya",
+  ariaLabelCalendar: "Kalendar",
   weekdays: {
     shorthand: ["Aha", "Isn", "Sel", "Rab", "Kha", "Jum", "Sab"],
     longhand: ["Ahad", "Isnin", "Selasa", "Rabu", "Khamis", "Jumaat", "Sabtu"],

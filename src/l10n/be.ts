@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Belarusian: CustomLocale = {
+  nextMonth: "Наступны месяц",
+  prevMonth: "Мінулы месяц",
+  ariaLabelCalendar: "Каляндар",
   weekdays: {
     shorthand: ["Нд", "Пн", "Аў", "Ср", "Чц", "Пт", "Сб"],
     longhand: [

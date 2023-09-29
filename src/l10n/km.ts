@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Khmer: CustomLocale = {
+  nextMonth: "ខែក្រោយ",
+  prevMonth: "ខែមុន",
+  ariaLabelCalendar: "ប្រតិទិន",
   weekdays: {
     shorthand: ["អាទិត្យ", "ចន្ទ", "អង្គារ", "ពុធ", "ព្រហស.", "សុក្រ", "សៅរ៍"],
     longhand: [

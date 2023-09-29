@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Kazakh: CustomLocale = {
+  nextMonth: "Келесі ай",
+  prevMonth: "Алдыңғы ай",
+  ariaLabelCalendar: "Таңбалар",
   weekdays: {
     shorthand: ["Жс", "Дс", "Сc", "Ср", "Бс", "Жм", "Сб"],
     longhand: [

@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Burmese: CustomLocale = {
+  nextMonth: "နောက်တစ်ရာလ",
+  prevMonth: "နောက်ဆယ်လ",
+  ariaLabelCalendar: "ပြက္ခဒိန်",
   weekdays: {
     shorthand: ["နွေ", "လာ", "ဂါ", "ဟူး", "ကြာ", "သော", "နေ"],
     longhand: [

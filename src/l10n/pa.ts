@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Punjabi: CustomLocale = {
+  nextMonth: "ਅਗਲੇ ਮਹੀਨੇ",
+  prevMonth: "ਪਿਛਲੇ ਮਹੀਨੇ",
+  ariaLabelCalendar: "ਕੈਲੰਡਰ",
   weekdays: {
     shorthand: ["ਐਤ", "ਸੋਮ", "ਮੰਗਲ", "ਬੁੱਧ", "ਵੀਰ", "ਸ਼ੁੱਕਰ", "ਸ਼ਨਿੱਚਰ"],
     longhand: [

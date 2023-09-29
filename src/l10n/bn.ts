@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Bangla: CustomLocale = {
+  nextMonth: "পরবর্তী মাস",
+  prevMonth: "আগের মাস",
+  ariaLabelCalendar: "পঞ্জিকা",
   weekdays: {
     shorthand: ["রবি", "সোম", "মঙ্গল", "বুধ", "বৃহস্পতি", "শুক্র", "শনি"],
     longhand: [

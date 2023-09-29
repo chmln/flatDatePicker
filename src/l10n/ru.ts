@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Russian: CustomLocale = {
+  nextMonth: "Следующий месяц",
+  prevMonth: "Прошлый месяц",
+  ariaLabelCalendar: "Календарь",
   weekdays: {
     shorthand: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
     longhand: [

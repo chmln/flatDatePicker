@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Georgian: CustomLocale = {
+  nextMonth: "შემდეგი თვე",
+  prevMonth: "წინა თვე",
+  ariaLabelCalendar: "კალენდარი",
   weekdays: {
     shorthand: ["კვ", "ორ", "სა", "ოთ", "ხუ", "პა", "შა"],
     longhand: [

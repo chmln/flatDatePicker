@@ -86,6 +86,9 @@ function FlatpickrInstance(
 
         return self.l10n.daysInMonth[month];
       },
+      generateUniqueId() {
+        return Math.random().toString(36);
+      }
     };
   }
 
@@ -520,7 +523,11 @@ function FlatpickrInstance(
     bind(window.document, "focus", documentClick, { capture: true });
 
     if (self.config.clickOpens === true) {
-      bind(self._input, "click", self.open);
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+        bind(self._input, "focus", self.open);
+      } else {
+        bind(self._input, "click", self.open);
+      }
     }
 
     if (self.daysContainer !== undefined) {
@@ -653,6 +660,11 @@ function FlatpickrInstance(
       "div",
       "flatpickr-calendar"
     );
+    self.calendarContainer.id = 'flatpickr-calendar-' + self.utils.generateUniqueId();
+    self.calendarContainer.role = 'dialog';
+    self.calendarContainer.ariaModal = 'true';
+    self.calendarContainer.ariaLabel = self.l10n.ariaLabelCalendar;
+    self.altInput?.setAttribute('aria-controls', self.calendarContainer.id);
     self.calendarContainer.tabIndex = -1;
 
     if (!self.config.noCalendar) {
@@ -1181,6 +1193,9 @@ function FlatpickrInstance(
     self.prevMonthNav.innerHTML = self.config.prevArrow;
     self.nextMonthNav.innerHTML = self.config.nextArrow;
 
+    self.prevMonthNav.ariaLabel = self.l10n.prevMonth;
+    self.nextMonthNav.ariaLabel = self.l10n.nextMonth;
+
     buildMonths();
 
     Object.defineProperty(self, "_hidePrevMonthArrow", {
@@ -1315,6 +1330,7 @@ function FlatpickrInstance(
       );
       self.amPM.title = self.l10n.toggleTitle;
       self.amPM.tabIndex = self.isOpen ? 0 : -1;
+      self.amPM.ariaLive = "polite";
       self.timeContainer.appendChild(self.amPM);
     }
 
@@ -1447,6 +1463,7 @@ function FlatpickrInstance(
         self.calendarContainer.classList.remove("open");
       }
       if (self._input !== undefined) {
+        self._input.ariaExpanded = "false";
         self._input.classList.remove("active");
       }
     }
@@ -2030,6 +2047,7 @@ function FlatpickrInstance(
 
     if (!wasOpen) {
       self.calendarContainer.classList.add("open");
+      self._input.ariaExpanded = "true";
       self._input.classList.add("active");
       triggerEvent("onOpen");
       positionCalendar(positionElement);
@@ -2737,6 +2755,13 @@ function FlatpickrInstance(
       self.altInput.required = self.input.required;
       self.altInput.tabIndex = self.input.tabIndex;
       self.altInput.type = "text";
+
+      // add accessibility attributes
+      self.altInput.role = 'combobox';
+      self.altInput.ariaHasPopup = 'true';
+      self.altInput.ariaAutoComplete = 'none';
+      self.altInput.ariaExpanded = 'false';
+
       self.input.setAttribute("type", "hidden");
 
       if (!self.config.static && self.input.parentNode)
@@ -2767,7 +2792,7 @@ function FlatpickrInstance(
       "input",
       self.input.className + " flatpickr-mobile"
     );
-    self.mobileInput.tabIndex = 1;
+    self.mobileInput.tabIndex = 0;
     self.mobileInput.type = inputType;
     self.mobileInput.disabled = self.input.disabled;
     self.mobileInput.required = self.input.required;

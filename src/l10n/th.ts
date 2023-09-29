@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Thai: CustomLocale = {
+  nextMonth: "เดือนถัดไป",
+  prevMonth: "เดือนที่แล้ว",
+  ariaLabelCalendar: "ปฏิทิน",
   weekdays: {
     shorthand: ["อา", "จ", "อ", "พ", "พฤ", "ศ", "ส"],
     longhand: [

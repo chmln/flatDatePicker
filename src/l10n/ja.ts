@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Japanese: CustomLocale = {
+  nextMonth: "来月",
+  prevMonth: "前月",
+  ariaLabelCalendar: "カレンダー",
   weekdays: {
     shorthand: ["日", "月", "火", "水", "木", "金", "土"],
     longhand: [

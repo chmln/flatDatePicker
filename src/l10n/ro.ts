@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Romanian: CustomLocale = {
+  nextMonth: "Luna viitoare",
+  prevMonth: "Luna trecută",
+  ariaLabelCalendar: "Calendar",
   weekdays: {
     shorthand: ["Dum", "Lun", "Mar", "Mie", "Joi", "Vin", "Sâm"],
     longhand: [

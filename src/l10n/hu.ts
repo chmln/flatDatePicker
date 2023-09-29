@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Hungarian: CustomLocale = {
+  nextMonth: "Következő hónap",
+  prevMonth: "Előző hónap",
+  ariaLabelCalendar: "Naptár",
   firstDayOfWeek: 1,
 
   weekdays: {

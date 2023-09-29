@@ -8,6 +8,9 @@ const fp =
         l10ns: {},
       } as FlatpickrFn);
 export const MandarinTraditional: CustomLocale = {
+  nextMonth: "下個月",
+  prevMonth: "上個月",
+  ariaLabelCalendar: "行事曆",
   weekdays: {
     shorthand: ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
     longhand: [

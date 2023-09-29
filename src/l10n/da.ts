@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Danish: CustomLocale = {
+  nextMonth: "Næste måned",
+  prevMonth: "Forrige måned",
+  ariaLabelCalendar: "Kalender",
   weekdays: {
     shorthand: ["søn", "man", "tir", "ons", "tors", "fre", "lør"],
     longhand: [
