@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Spanish: CustomLocale = {
+  nextMonth: "El próximo mes",
+  prevMonth: "El mes anterior",
+  ariaLabelCalendar: "Calendario",
   weekdays: {
     shorthand: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
     longhand: [

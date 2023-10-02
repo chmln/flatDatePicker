@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Lithuanian: CustomLocale = {
+  nextMonth: "Kitą mėnesį",
+  prevMonth: "Praėjusį mėnesį",
+  ariaLabelCalendar: "Kalendorius",
   weekdays: {
     shorthand: ["S", "Pr", "A", "T", "K", "Pn", "Š"],
     longhand: [

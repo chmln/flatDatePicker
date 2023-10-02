@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Armenian: CustomLocale = {
+  nextMonth: "Հաջորդ ամիս",
+  prevMonth: "Նախորդ ամիս",
+  ariaLabelCalendar: "Օրացույց",
   weekdays: {
     shorthand: ["Կիր", "Երկ", "Երք", "Չրք", "Հնգ", "Ուրբ", "Շբթ"],
     longhand: [

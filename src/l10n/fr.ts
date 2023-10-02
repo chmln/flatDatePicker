@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const French: CustomLocale = {
+  nextMonth: "Le mois prochain",
+  prevMonth: "Le mois précédent",
+  ariaLabelCalendar: "Calendrier",
   firstDayOfWeek: 1,
 
   weekdays: {

@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Hindi: CustomLocale = {
+  nextMonth: "अगले महीने",
+  prevMonth: "पिछले महीने",
+  ariaLabelCalendar: "कैलेंडर",
   weekdays: {
     shorthand: ["रवि", "सोम", "मंगल", "बुध", "गुरु", "शुक्र", "शनि"],
     longhand: [

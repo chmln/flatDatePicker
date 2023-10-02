@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Azerbaijan: CustomLocale = {
+  nextMonth: "Növbəti ay",
+  prevMonth: "Əvvəlki ay",
+  ariaLabelCalendar: "Təqvim",
   weekdays: {
     shorthand: ["B.", "B.e.", "Ç.a.", "Ç.", "C.a.", "C.", "Ş."],
     longhand: [

@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Croatian: CustomLocale = {
+  nextMonth: "Sljedeći mjesec",
+  prevMonth: "Prošli mjesec",
+  ariaLabelCalendar: "Kalendar",
   firstDayOfWeek: 1,
 
   weekdays: {

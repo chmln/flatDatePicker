@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Vietnamese: CustomLocale = {
+  nextMonth: "Tháng tiếp theo",
+  prevMonth: "Tháng trước",
+  ariaLabelCalendar: "Lịch",
   weekdays: {
     shorthand: ["CN", "T2", "T3", "T4", "T5", "T6", "T7"],
     longhand: [

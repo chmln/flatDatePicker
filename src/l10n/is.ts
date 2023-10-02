@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Icelandic: CustomLocale = {
+  nextMonth: "Næsti mánuður",
+  prevMonth: "Síðasti mánuður",
+  ariaLabelCalendar: "Dagatal",
   weekdays: {
     shorthand: ["Sun", "Mán", "Þri", "Mið", "Fim", "Fös", "Lau"],
     longhand: [

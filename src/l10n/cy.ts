@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Welsh: CustomLocale = {
+  nextMonth: "Mis nesaf",
+  prevMonth: "Mis blaenorol",
+  ariaLabelCalendar: "Calendr",
   weekdays: {
     shorthand: ["Sul", "Llun", "Maw", "Mer", "Iau", "Gwe", "Sad"],
     longhand: [

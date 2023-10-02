@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Korean: CustomLocale = {
+  nextMonth: "다음 달",
+  prevMonth: "지난 달",
+  ariaLabelCalendar: "달력",
   weekdays: {
     shorthand: ["일", "월", "화", "수", "목", "금", "토"],
     longhand: [

@@ -1,6 +1,9 @@
 import { Locale } from "../types/locale";
 
 export const english: Locale = {
+  nextMonth: "Next month",
+  prevMonth: "Previous month",
+  ariaLabelCalendar: "Calendar",
   weekdays: {
     shorthand: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
     longhand: [

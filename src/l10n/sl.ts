@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Slovenian: CustomLocale = {
+  nextMonth: "Naslednji mesec",
+  prevMonth: "Prejšnji mesec",
+  ariaLabelCalendar: "Koledar",
   weekdays: {
     shorthand: ["Ned", "Pon", "Tor", "Sre", "Čet", "Pet", "Sob"],
     longhand: [

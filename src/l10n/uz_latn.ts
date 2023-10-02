@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const UzbekLatin: CustomLocale = {
+  nextMonth: "Keyingi oy",
+  prevMonth: "Oldingi oy",
+  ariaLabelCalendar: "Taqvim",
   weekdays: {
     shorthand: ["Ya", "Du", "Se", "Cho", "Pa", "Ju", "Sha"],
     longhand: [

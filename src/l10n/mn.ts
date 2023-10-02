@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Mongolian: CustomLocale = {
+  nextMonth: "Дараа сар",
+  prevMonth: "Өнгөрсөн сар",
+  ariaLabelCalendar: "Календарь",
   firstDayOfWeek: 1,
   weekdays: {
     shorthand: ["Да", "Мя", "Лх", "Пү", "Ба", "Бя", "Ня"],

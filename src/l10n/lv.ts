@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Latvian: CustomLocale = {
+  nextMonth: "Nākamajā mēnesī",
+  prevMonth: "Iepriekšējajā mēnesī",
+  ariaLabelCalendar: "Kalendārs",
   firstDayOfWeek: 1,
 
   weekdays: {

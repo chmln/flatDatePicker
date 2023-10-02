@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Faroese: CustomLocale = {
+  nextMonth: "Næsta mánaði",
+  prevMonth: "Fyrra mánaði",
+  ariaLabelCalendar: "Kalendari",
   weekdays: {
     shorthand: ["Sun", "Mán", "Týs", "Mik", "Hós", "Frí", "Ley"],
     longhand: [

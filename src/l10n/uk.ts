@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Ukrainian: CustomLocale = {
+  nextMonth: "Наступний місяць",
+  prevMonth: "Минулий місяць",
+  ariaLabelCalendar: "Календар",
   firstDayOfWeek: 1,
 
   weekdays: {

@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Dutch: CustomLocale = {
+  nextMonth: "Volgende maand",
+  prevMonth: "Vorige maand",
+  ariaLabelCalendar: "Kalender",
   weekdays: {
     shorthand: ["zo", "ma", "di", "wo", "do", "vr", "za"],
     longhand: [

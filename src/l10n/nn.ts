@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const NorwegianNynorsk: CustomLocale = {
+  nextMonth: "Neste månad",
+  prevMonth: "Førre månad",
+  ariaLabelCalendar: "Kalender",
   weekdays: {
     shorthand: ["Sø.", "Må.", "Ty.", "On.", "To.", "Fr.", "La."],
     longhand: [

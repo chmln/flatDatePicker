@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const AlgerianArabic: CustomLocale = {
+  nextMonth: "الشهر القادم",
+  prevMonth: "الشهر السابق",
+  ariaLabelCalendar: "التقويم",
   weekdays: {
     shorthand: ["أحد", "اثنين", "ثلاثاء", "أربعاء", "خميس", "جمعة", "سبت"],
     longhand: [

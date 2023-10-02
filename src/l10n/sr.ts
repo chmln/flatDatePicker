@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Serbian: CustomLocale = {
+  nextMonth: "Следећи месец",
+  prevMonth: "Претходни месец",
+  ariaLabelCalendar: "Календар",
   weekdays: {
     shorthand: ["Ned", "Pon", "Uto", "Sre", "Čet", "Pet", "Sub"],
     longhand: [

@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Macedonian: CustomLocale = {
+  nextMonth: "Следен месец",
+  prevMonth: "Претходен месец",
+  ariaLabelCalendar: "Календар",
   weekdays: {
     shorthand: ["Не", "По", "Вт", "Ср", "Че", "Пе", "Са"],
     longhand: [

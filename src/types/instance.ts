@@ -149,6 +149,7 @@ export type Instance = Elements &
 
     utils: {
       getDaysInMonth: (month?: number, year?: number) => number;
+      generateUniqueId: () => string;
     };
   };
 

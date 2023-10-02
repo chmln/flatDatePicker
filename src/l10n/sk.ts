@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Slovak: CustomLocale = {
+  nextMonth: "Budúci mesiac",
+  prevMonth: "Minulý mesiac",
+  ariaLabelCalendar: "Kalendár",
   weekdays: {
     shorthand: ["Ned", "Pon", "Ut", "Str", "Štv", "Pia", "Sob"],
     longhand: [

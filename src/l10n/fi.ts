@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Finnish: CustomLocale = {
+  nextMonth: "Ensi kuussa",
+  prevMonth: "Edellinen kuukausi",
+  ariaLabelCalendar: "Kalenteri",
   firstDayOfWeek: 1,
 
   weekdays: {

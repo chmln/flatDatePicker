@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Albanian: CustomLocale = {
+  nextMonth: "Muaji tjetër",
+  prevMonth: "Muaji i kaluar",
+  ariaLabelCalendar: "Kalendar",
   weekdays: {
     shorthand: ["Di", "Hë", "Ma", "Më", "En", "Pr", "Sh"],
     longhand: [

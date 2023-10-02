@@ -10,6 +10,9 @@ const fp =
       } as FlatpickrFn);
 
 export const Esperanto: CustomLocale = {
+  nextMonth: "Venonta monato",
+  prevMonth: "Antaŭa monato",
+  ariaLabelCalendar: "Kalendaro",
   firstDayOfWeek: 1,
 
   rangeSeparator: " ĝis ",
