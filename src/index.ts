@@ -618,7 +618,6 @@ function FlatpickrInstance(
 
     if (triggerChange && self.currentYear !== oldYear) {
       triggerEvent("onYearChange");
-      buildMonthSwitch();
     }
 
     if (
