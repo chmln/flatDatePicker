@@ -460,7 +460,11 @@ function FlatpickrInstance(
   function onInputKeyDown(e: KeyboardEvent) {
     if (e.key === "ArrowDown") {
       self.open();
-      focusOnDay(getFirstAvailableDay(1), 0);
+      if (self.config.noCalendar || self.isMobile) {
+        self.hourElement?.focus();
+      } else {
+        focusOnDay(getFirstAvailableDay(1), 0);
+      }
     }
   }
 
@@ -471,7 +475,11 @@ function FlatpickrInstance(
     if (document.activeElement === self.hourElement && e.key === "Tab") {
       if (e.shiftKey) {
         e.preventDefault();
-        focusOnDay(getFirstAvailableDay(1), 0);
+        if (self.config.noCalendar || self.isMobile) {
+          self.altInput?.focus();
+        } else {
+          focusOnDay(getFirstAvailableDay(1), 0);
+        }
       }
     }
   }
