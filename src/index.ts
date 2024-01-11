@@ -531,13 +531,8 @@ function FlatpickrInstance(
     bind(window.document, "focus", documentClick, { capture: true });
 
     if (self.config.clickOpens === true) {
-      // To provide a better experience for the use of assistive technologies in mobile devices,
-      // Let's bind the handler to the focus event instead of click event.
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
-        bind(self._input, "focus", self.open);
-      } else {
-        bind(self._input, "click", self.open);
-      }
+      bind(self._input, "focus", self.open);
+      bind(self._input, "click", self.open);
     }
 
     if (self.daysContainer !== undefined) {
