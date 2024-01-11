@@ -105,22 +105,40 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
     }
 
     function bindEvents() {
-      fp._bind(fp.prevMonthNav, "click", (e) => {
+      function onEventCallback(e: Event, isNext: boolean) {
         e.preventDefault();
         e.stopPropagation();
+        const targetYear = isNext ? fp.currentYear + 1 : fp.currentYear - 1;
+        const focusTarget = isNext ? fp.nextMonthNav : fp.prevMonthNav;
 
-        fp.changeYear(fp.currentYear - 1);
+        fp.changeYear(targetYear);
         selectYear();
         buildMonths();
+        focusTarget.focus();
+      }
+
+      fp._bind(fp.prevMonthNav, "click", (e) => {
+        onEventCallback(e, false);
       });
 
       fp._bind(fp.nextMonthNav, "click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+        onEventCallback(e, true);
+      });
 
-        fp.changeYear(fp.currentYear + 1);
-        selectYear();
-        buildMonths();
+      fp._bind(fp.prevMonthNav, "keydown", (e) => {
+        if (e.keyCode === 13 || e.keyCode === 32) {
+          onEventCallback(e, false);
+        }
+      });
+
+      fp._bind(fp.nextMonthNav, "keydown", (e) => {
+        if (e.keyCode === 13 || e.keyCode === 32) {
+          onEventCallback(e, true);
+        } else if (e.keyCode === 9) {
+          if (!e.shiftKey) {
+            focusOnMonth();
+          }
+        }
       });
 
       fp._bind(
@@ -300,6 +318,26 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
         self.monthsContainer.contains(document.activeElement)
       ) {
         setMonth((document.activeElement as MonthElement).dateObj);
+      }
+    }
+
+    function focusOnMonth() {
+      if (!fp.rContainer || !self.monthsContainer) return;
+
+      const currentlySelected = fp.rContainer.querySelector(
+        ".flatpickr-monthSelect-month.selected"
+      ) as HTMLElement;
+
+      let index = Array.prototype.indexOf.call(
+        self.monthsContainer.children,
+        document.activeElement
+      );
+
+      if (index === -1) {
+        const target =
+          currentlySelected || self.monthsContainer.firstElementChild;
+        target.focus();
+        index = (target as MonthElement).$i;
       }
     }
 
