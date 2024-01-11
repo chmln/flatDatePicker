@@ -2023,6 +2023,10 @@ function FlatpickrInstance(
     e?: FocusEvent | MouseEvent,
     positionElement = self._positionElement
   ) {
+    if (self.input.disabled || self._input.disabled) {
+      return;
+    }
+
     if (self.isMobile === true) {
       if (e) {
         e.preventDefault();
@@ -2039,7 +2043,7 @@ function FlatpickrInstance(
 
       triggerEvent("onOpen");
       return;
-    } else if (self._input.disabled || self.config.inline) {
+    } else if (self.config.inline) {
       return;
     }
 
