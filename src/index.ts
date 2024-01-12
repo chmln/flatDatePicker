@@ -167,12 +167,6 @@ function FlatpickrInstance(
       (e: KeyboardEvent) => {
         if (e.key === "Tab") {
           if (e.shiftKey) {
-            //shift+tab pressed
-            if (self.loadedPlugins.indexOf("monthSelect") !== -1) {
-              setTimeout(() => {
-                focusOnAvailableMonth();
-              }, 0);
-            }
             return;
           } else {
             _predictableTopElement.focus();
@@ -3034,12 +3028,7 @@ function FlatpickrInstance(
         if (e.shiftKey) return;
         e.preventDefault();
 
-        // If using month plugin, focus on available month, otherwise focus on available day
-        if (self.loadedPlugins.indexOf("monthSelect") !== -1) {
-          focusOnAvailableMonth();
-        } else {
-          focusOnDay(getFirstAvailableDay(1), 0);
-        }
+        focusOnDay(getFirstAvailableDay(1), 0);
       }
     }
   }

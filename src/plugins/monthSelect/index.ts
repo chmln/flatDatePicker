@@ -105,6 +105,7 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
     }
 
     function bindEvents() {
+      // Callback method to be used on following click and keydown events
       function onEventCallback(e: Event, isNext: boolean) {
         e.preventDefault();
         e.stopPropagation();
@@ -126,15 +127,18 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
       });
 
       fp._bind(fp.prevMonthNav, "keydown", (e) => {
+        // If Space or Enter
         if (e.keyCode === 13 || e.keyCode === 32) {
           onEventCallback(e, false);
         }
       });
 
       fp._bind(fp.nextMonthNav, "keydown", (e) => {
+        // If Space or Enter
         if (e.keyCode === 13 || e.keyCode === 32) {
           onEventCallback(e, true);
         } else if (e.keyCode === 9) {
+          // If it's Tab, without shift, focus on available month
           if (!e.shiftKey) {
             focusOnMonth();
           }
@@ -328,17 +332,10 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
         ".flatpickr-monthSelect-month.selected"
       ) as HTMLElement;
 
-      let index = Array.prototype.indexOf.call(
-        self.monthsContainer.children,
-        document.activeElement
-      );
-
-      if (index === -1) {
-        const target =
-          currentlySelected || self.monthsContainer.firstElementChild;
-        target.focus();
-        index = (target as MonthElement).$i;
-      }
+      // If a month is selected, focus on that, otherwise go to the first month
+      const target =
+        currentlySelected || self.monthsContainer.firstElementChild;
+      target.focus();
     }
 
     function closeHook() {
