@@ -105,22 +105,44 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
     }
 
     function bindEvents() {
-      fp._bind(fp.prevMonthNav, "click", (e) => {
+      // Callback method to be used on following click and keydown events
+      function onEventCallback(e: Event, isNext: boolean) {
         e.preventDefault();
         e.stopPropagation();
+        const targetYear = isNext ? fp.currentYear + 1 : fp.currentYear - 1;
+        const focusTarget = isNext ? fp.nextMonthNav : fp.prevMonthNav;
 
-        fp.changeYear(fp.currentYear - 1);
+        fp.changeYear(targetYear);
         selectYear();
         buildMonths();
+        focusTarget.focus();
+      }
+
+      fp._bind(fp.prevMonthNav, "click", (e) => {
+        onEventCallback(e, false);
       });
 
       fp._bind(fp.nextMonthNav, "click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+        onEventCallback(e, true);
+      });
 
-        fp.changeYear(fp.currentYear + 1);
-        selectYear();
-        buildMonths();
+      fp._bind(fp.prevMonthNav, "keydown", (e) => {
+        // If Space or Enter
+        if (e.keyCode === 13 || e.keyCode === 32) {
+          onEventCallback(e, false);
+        }
+      });
+
+      fp._bind(fp.nextMonthNav, "keydown", (e) => {
+        // If Space or Enter
+        if (e.keyCode === 13 || e.keyCode === 32) {
+          onEventCallback(e, true);
+        } else if (e.keyCode === 9) {
+          // If it's Tab, without shift, focus on available month
+          if (!e.shiftKey) {
+            focusOnMonth();
+          }
+        }
       });
 
       fp._bind(
@@ -301,6 +323,19 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
       ) {
         setMonth((document.activeElement as MonthElement).dateObj);
       }
+    }
+
+    function focusOnMonth() {
+      if (!fp.rContainer || !self.monthsContainer) return;
+
+      const currentlySelected = fp.rContainer.querySelector(
+        ".flatpickr-monthSelect-month.selected"
+      ) as HTMLElement;
+
+      // If a month is selected, focus on that, otherwise go to the first month
+      const target =
+        currentlySelected || self.monthsContainer.firstElementChild;
+      target.focus();
     }
 
     function closeHook() {
