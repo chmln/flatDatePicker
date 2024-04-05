@@ -2562,7 +2562,9 @@ function FlatpickrInstance(
 
   function setupDates() {
     self.selectedDates = [];
-    self.now = self.parseDate(self.config.now) || new Date();
+    self.now =
+      (self.config.now ? self.parseDate(self.config.now) : undefined) ||
+      new Date();
 
     // Workaround IE11 setting placeholder as the input's value
     const preloadedDate =

@@ -315,7 +315,7 @@ export interface ParsedOptions {
   monthSelectorType: string;
   nextArrow: string;
   noCalendar: boolean;
-  now: Date;
+  now?: Date;
   onChange: Hook[];
   onClose: Hook[];
   onDayCreate: Hook[];
@@ -397,7 +397,6 @@ export const defaults: ParsedOptions = {
   nextArrow:
     "<svg version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 17 17'><g></g><path d='M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z' /></svg>",
   noCalendar: false,
-  now: new Date(),
   onChange: [],
   onClose: [],
   onDayCreate: [],
