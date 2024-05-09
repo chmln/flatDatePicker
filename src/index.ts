@@ -2990,13 +2990,13 @@ function FlatpickrInstance(
    * Method to focus on the available month
    */
   function focusOnAvailableMonth() {
-    // Get selected month, first try selected, then get the first one
+    // Get selected month, first try selected, then get the first one enabled
     const targetMonth =
       (self.calendarContainer?.querySelector(
         ".flatpickr-monthSelect-month.selected"
       ) as HTMLElement) ||
       (self.calendarContainer?.querySelector(
-        ".flatpickr-monthSelect-month"
+        ".flatpickr-monthSelect-month:not(.flatpickr-disabled)"
       ) as HTMLElement);
 
     // Focus on target month
