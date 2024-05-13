@@ -245,6 +245,7 @@ function FlatpickrInstance(
       self.selectedDates = [defaultDate];
       self.latestSelectedDateObj = defaultDate;
     }
+    
     if (e !== undefined && e.type !== "blur") {
       timeWrapper(e);
     }
@@ -1599,8 +1600,8 @@ function FlatpickrInstance(
           self.timeContainer !== undefined &&
           self.minuteElement !== undefined &&
           self.hourElement !== undefined &&
-          self.input.value !== "" &&
-          self.input.value !== undefined
+          self._input.value !== "" &&
+          self._input.value !== undefined
         ) {
           updateTime();
         }
