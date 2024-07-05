@@ -473,7 +473,7 @@ function FlatpickrInstance(
       // Save the entered Date on the input
       case "Enter":
         const newDate = new Date(self._input.value);
-        setDate(newDate, false);
+        setDate(newDate, true);
         break;
       // Close the calendar
       case "Tab":
