@@ -245,7 +245,7 @@ function FlatpickrInstance(
       self.selectedDates = [defaultDate];
       self.latestSelectedDateObj = defaultDate;
     }
-    
+
     if (e !== undefined && e.type !== "blur") {
       timeWrapper(e);
     }
@@ -458,15 +458,33 @@ function FlatpickrInstance(
    * Method to trigger the picker container when pressing ArrowDown on the input
    */
   function onInputKeyDown(e: KeyboardEvent) {
-    if (e.key === "ArrowDown") {
-      self.open();
-      if (self.config.noCalendar || self.isMobile) {
-        self.hourElement?.focus();
-      } else if (self.loadedPlugins.indexOf("monthSelect") !== -1) {
-        focusOnAvailableMonth();
-      } else {
-        focusOnDay(getFirstAvailableDay(1), 0);
-      }
+    switch (e.key) {
+      // Open Calendar and focus on available day
+      case "ArrowDown":
+        self.open();
+        if (self.config.noCalendar || self.isMobile) {
+          self.hourElement?.focus();
+        } else if (self.loadedPlugins.indexOf("monthSelect") !== -1) {
+          focusOnAvailableMonth();
+        } else {
+          focusOnDay(getFirstAvailableDay(1), 0);
+        }
+        break;
+      // Save the entered Date on the input
+      case "Enter":
+        const newDate = new Date(self._input.value);
+        setDate(newDate, true);
+        break;
+      // Close the calendar
+      case "Tab":
+        if (e.shiftKey) {
+          // Handle Shift+Tab combination
+          self.close();
+        } else {
+          // Just Tab: Close the calendar
+          self.close();
+        }
+        break;
     }
   }
 
@@ -2447,7 +2465,8 @@ function FlatpickrInstance(
   function selectDate(e: MouseEvent | KeyboardEvent) {
     e.preventDefault();
     e.stopPropagation();
-    if (self.config.mode === "range") onMouseOver(getEventTarget(e) as DayElement);
+    if (self.config.mode === "range")
+      onMouseOver(getEventTarget(e) as DayElement);
 
     const isSelectable = (day: Element) =>
       day.classList &&
