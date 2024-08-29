@@ -5,7 +5,7 @@ Contributions are welcome from beginners and seasoned developers alike.
 
 ### Bugs
 
-If you've found a bug, create a new issue first, then submit a pull request. 
+If you've found a bug, create a new issue first, then submit a pull request.
 
 If at any point you are having trouble navigating/understanding the code base, please don't hesitate to ask for help :)
 
@@ -18,9 +18,9 @@ While a lot of feature requests often don't make it to the core, they can be imp
 ### How to submit a pull request
 
 1. Fork the repository.
-2. Setup the necessary dependencies by running `npm install`. 
-3. Then, `npm start` to launch the dev environment. 
-4. `src/index.ts` is the entry point, `index.html` is where you can experiment with options. 
+2. Setup the necessary dependencies by running `npm install`.
+3. Then, `npm start` to launch the dev environment.
+4. `src/index.ts` is the entry point, `index.html` is where you can experiment with options.
 5. Make desired changes and push.
 6. Go to https://github.com/flatpickr/flatpickr/compare?expand=1
 
@@ -29,6 +29,7 @@ While a lot of feature requests often don't make it to the core, they can be imp
 1. Setup a local repo as above (How to submit a pull request).
 2. Install the [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome)
 3. Add the following configuration to `${workspaceFolder}/.vscode/launch.json`
+
 ```
 {
     "version": "0.1.0",
@@ -43,6 +44,7 @@ While a lot of feature requests often don't make it to the core, they can be imp
     ]
 }
 ```
+
 4. Make sure the development server is started `npm start`
 5. Set your desired breakpoints in the typescipt source files.
 6. Click on the debug symbol on the actions bar.
