@@ -139,22 +139,35 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
     function setCurrentlySelected() {
       if (!fp.rContainer) return;
       if (!fp.selectedDates.length) return;
-
-      const currentlySelected = fp.rContainer.querySelectorAll(
+      var currentlySelected = fp.rContainer.querySelectorAll(
         ".flatpickr-monthSelect-month.selected"
       );
-
-      for (let index = 0; index < currentlySelected.length; index++) {
+      for (var index = 0; index < currentlySelected.length; index++) {
         currentlySelected[index].classList.remove("selected");
       }
-
-      const targetMonth = fp.selectedDates[0].getMonth();
-      const month = fp.rContainer.querySelector(
-        `.flatpickr-monthSelect-month:nth-child(${targetMonth + 1})`
+      var targetMonth = fp.selectedDates[0].getMonth();
+      var month = fp.rContainer.querySelector(
+        ".flatpickr-monthSelect-month:nth-child(" + (targetMonth + 1) + ")"
       );
+      var months = fp.rContainer.querySelectorAll(
+        ".flatpickr-monthSelect-month"
+      );
+      var startRange = fp.rContainer.querySelector(".startRange");
+      var endRange = fp.rContainer.querySelector(".endRange");
 
       if (month) {
         month.classList.add("selected");
+        if (
+          startRange &&
+          endRange &&
+          !startRange.classList.contains("selected")
+        ) {
+          for (var index = 0; index < months.length - 1; index++) {
+            months[index].classList.remove("startRange");
+            months[index].classList.remove("inRange");
+            months[index].classList.remove("endRange");
+          }
+        }
       }
     }
 
@@ -278,9 +291,11 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
       }
 
       if (shouldMove) {
-        (self.monthsContainer.children[
-          (12 + index + shifts[e.keyCode]) % 12
-        ] as HTMLElement).focus();
+        (
+          self.monthsContainer.children[
+            (12 + index + shifts[e.keyCode]) % 12
+          ] as HTMLElement
+        ).focus();
       } else if (
         e.keyCode === 13 &&
         self.monthsContainer.contains(document.activeElement)

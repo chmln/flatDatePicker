@@ -1,11 +1,11 @@
 ## flatpickr - javascript datetime picker
+
 [![Actions Status](https://github.com/flatpickr/flatpickr/workflows/GitHub%20Actions/badge.svg)](https://github.com/flatpickr/flatpickr/actions)
 
 [![Coverage](https://coveralls.io/repos/github/chmln/flatpickr/badge.svg?branch=master)](https://coveralls.io/github/chmln/flatpickr)
 [![npm version](https://badge.fury.io/js/flatpickr.svg)](https://www.npmjs.com/package/flatpickr)
 [![CDNJS](https://img.shields.io/cdnjs/v/flatpickr.svg)](https://cdnjs.com/libraries/flatpickr)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg?style=plastic)](https://raw.githubusercontent.com/flatpickr/flatpickr/master/LICENSE.md)
-
 
 ![blue](https://cloud.githubusercontent.com/assets/11352152/14549371/3cbb65da-028d-11e6-976d-a6f63f32061f.PNG)
 ![green](https://cloud.githubusercontent.com/assets/11352152/14549373/3cbe975a-028d-11e6-9192-43975f0146da.PNG)
@@ -14,8 +14,8 @@
 ![default](https://cloud.githubusercontent.com/assets/11352152/14549370/3cadb750-028d-11e6-818d-c6a1bc6349fc.PNG)
 ![dark](https://cloud.githubusercontent.com/assets/11352152/14549372/3cbc8514-028d-11e6-8daf-ec1ba01c9d7e.PNG)
 
-
 ## Motivation
+
 Almost every large SPA or project involves date and time input. Browser's native implementations of those are inconsistent and limited in functionality. Most other libraries require you to pull in heavy dependencies like jQuery, Bootstrap, and moment.js. I wanted something that was good-looking out of the box, dependency-free, powerful, and extensible.
 
 Feature overview:
@@ -39,6 +39,7 @@ Feature overview:
 flatpickr provides more functionality at a fraction of the size of other libraries.
 
 ## Compatibility
+
 IE9 and up, Edge, iOS Safari 6+, Chrome 8+, Firefox 6+
 
 ## Install & Use
@@ -46,15 +47,16 @@ IE9 and up, Edge, iOS Safari 6+, Chrome 8+, Firefox 6+
 Demos and documentation: https://flatpickr.js.org
 
 See also:
-* [angular2+-flatpickr addon](https://github.com/mezoistvan/ng2-flatpickr)
-* [angularJS-flatpickr addon](https://www.npmjs.com/package/angular-flatpickr)
-* [ember-flatpickr addon](https://www.npmjs.com/package/ember-flatpickr)
-* [Preact Component](https://github.com/molnarmark/preact-flatpickr)
-* [React Component](https://github.com/coderhaoxin/react-flatpickr)
-* [Stimulus.js Controller](https://github.com/adrienpoly/stimulus-flatpickr)
-* [Svelte Component](https://github.com/jacobmischka/svelte-flatpickr)
-* [vue-flatpickr component](https://github.com/ankurk91/vue-flatpickr-component)
-* [lit-flatpickr component](https://github.com/Matsuuu/lit-flatpickr)
+
+- [angular2+-flatpickr addon](https://github.com/mezoistvan/ng2-flatpickr)
+- [angularJS-flatpickr addon](https://www.npmjs.com/package/angular-flatpickr)
+- [ember-flatpickr addon](https://www.npmjs.com/package/ember-flatpickr)
+- [Preact Component](https://github.com/molnarmark/preact-flatpickr)
+- [React Component](https://github.com/coderhaoxin/react-flatpickr)
+- [Stimulus.js Controller](https://github.com/adrienpoly/stimulus-flatpickr)
+- [Svelte Component](https://github.com/jacobmischka/svelte-flatpickr)
+- [vue-flatpickr component](https://github.com/ankurk91/vue-flatpickr-component)
+- [lit-flatpickr component](https://github.com/Matsuuu/lit-flatpickr)
 
 ## Supporting flatpickr
 

@@ -1,14 +1,11 @@
 {
   "presets": [
     [
-      "@babel/preset-env", {
+      "@babel/preset-env",
+      {
         "modules": false,
         "targets": {
-          "browsers": [
-            "ie >= 9",
-            "last 2 versions",
-            "safari >= 7"
-          ]
+          "browsers": ["ie >= 9", "last 2 versions", "safari >= 7"]
         },
         "loose": true
       }
