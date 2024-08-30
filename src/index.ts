@@ -689,9 +689,12 @@ function FlatpickrInstance(
     );
     self.calendarContainer.id =
       "flatpickr-calendar-" + self.utils.generateUniqueId();
-    self.calendarContainer.role = "dialog";
-    self.calendarContainer.ariaModal = "true";
-    self.calendarContainer.ariaLabel = self.l10n.ariaLabelCalendar;
+    self.calendarContainer.setAttribute("role", "dialog");
+    self.calendarContainer.setAttribute("ariaModal", "true");
+    self.calendarContainer.setAttribute(
+      "ariaLabel",
+      self.l10n.ariaLabelCalendar
+    );
     self.altInput?.setAttribute("aria-controls", self.calendarContainer.id);
     self.calendarContainer.tabIndex = -1;
 
@@ -1221,8 +1224,8 @@ function FlatpickrInstance(
     self.prevMonthNav.innerHTML = self.config.prevArrow;
     self.nextMonthNav.innerHTML = self.config.nextArrow;
 
-    self.prevMonthNav.ariaLabel = self.l10n.prevMonth;
-    self.nextMonthNav.ariaLabel = self.l10n.nextMonth;
+    self.prevMonthNav.setAttribute("ariaLabel", self.l10n.prevMonth);
+    self.nextMonthNav.setAttribute("ariaLabel", self.l10n.nextMonth);
 
     buildMonths();
 
@@ -1358,7 +1361,7 @@ function FlatpickrInstance(
       );
       self.amPM.title = self.l10n.toggleTitle;
       self.amPM.tabIndex = self.isOpen ? 0 : -1;
-      self.amPM.ariaLive = "polite";
+      self.amPM.setAttribute("ariaLive", "polite");
       self.timeContainer.appendChild(self.amPM);
     }
 
@@ -1491,7 +1494,7 @@ function FlatpickrInstance(
         self.calendarContainer.classList.remove("open");
       }
       if (self._input !== undefined) {
-        self._input.ariaExpanded = "false";
+        self._input.setAttribute("ariaExpanded", "false");
         self._input.classList.remove("active");
       }
     }
@@ -2079,7 +2082,7 @@ function FlatpickrInstance(
 
     if (!wasOpen) {
       self.calendarContainer.classList.add("open");
-      self._input.ariaExpanded = "true";
+      self._input.setAttribute("ariaExpanded", "true");
       self._input.classList.add("active");
       triggerEvent("onOpen");
       positionCalendar(positionElement);
@@ -2792,10 +2795,10 @@ function FlatpickrInstance(
       self.altInput.type = "text";
 
       // add accessibility attributes
-      self.altInput.role = "combobox";
-      self.altInput.ariaHasPopup = "true";
-      self.altInput.ariaAutoComplete = "none";
-      self.altInput.ariaExpanded = "false";
+      self.altInput.setAttribute("role", "combobox");
+      self.altInput.setAttribute("ariaHasPopup", "true");
+      self.altInput.setAttribute("ariaAutoComplete", "none");
+      self.altInput.setAttribute("ariaExpanded", "false");
 
       self.input.setAttribute("type", "hidden");
 
