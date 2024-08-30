@@ -472,7 +472,10 @@ function FlatpickrInstance(
         break;
       // Save the entered Date on the input
       case "Enter":
-        if(self.loadedPlugins.indexOf("monthSelect") !== -1|| self.config.noCalendar && self.config.enableTime) {
+        if (
+          self.loadedPlugins.indexOf("monthSelect") !== -1 ||
+          (self.config.noCalendar && self.config.enableTime)
+        ) {
           return;
         }
         const newDate = new Date(self._input.value);
