@@ -416,6 +416,11 @@ function FlatpickrInstance(
    */
   function onYearInput(event: KeyboardEvent & IncrementEvent) {
     const eventTarget = getEventTarget(event) as HTMLInputElement;
+
+    if(eventTarget !== self.yearElements[0]) {
+      return;
+    }
+
     const year = parseInt(eventTarget.value) + (event.delta || 0);
 
     if (
@@ -472,7 +477,10 @@ function FlatpickrInstance(
         break;
       // Save the entered Date on the input
       case "Enter":
-        if(self.loadedPlugins.indexOf("monthSelect") !== -1|| self.config.noCalendar && self.config.enableTime) {
+        if (
+          self.loadedPlugins.indexOf("monthSelect") !== -1 ||
+          (self.config.noCalendar && self.config.enableTime)
+        ) {
           return;
         }
         const newDate = new Date(self._input.value);
@@ -689,9 +697,12 @@ function FlatpickrInstance(
     );
     self.calendarContainer.id =
       "flatpickr-calendar-" + self.utils.generateUniqueId();
-    self.calendarContainer.role = "dialog";
-    self.calendarContainer.ariaModal = "true";
-    self.calendarContainer.ariaLabel = self.l10n.ariaLabelCalendar;
+    self.calendarContainer.setAttribute("role", "dialog");
+    self.calendarContainer.setAttribute("ariaModal", "true");
+    self.calendarContainer.setAttribute(
+      "ariaLabel",
+      self.l10n.ariaLabelCalendar
+    );
     self.altInput?.setAttribute("aria-controls", self.calendarContainer.id);
     self.calendarContainer.tabIndex = -1;
 
@@ -1221,8 +1232,8 @@ function FlatpickrInstance(
     self.prevMonthNav.innerHTML = self.config.prevArrow;
     self.nextMonthNav.innerHTML = self.config.nextArrow;
 
-    self.prevMonthNav.ariaLabel = self.l10n.prevMonth;
-    self.nextMonthNav.ariaLabel = self.l10n.nextMonth;
+    self.prevMonthNav.setAttribute("ariaLabel", self.l10n.prevMonth);
+    self.nextMonthNav.setAttribute("ariaLabel", self.l10n.nextMonth);
 
     buildMonths();
 
@@ -1358,7 +1369,7 @@ function FlatpickrInstance(
       );
       self.amPM.title = self.l10n.toggleTitle;
       self.amPM.tabIndex = self.isOpen ? 0 : -1;
-      self.amPM.ariaLive = "polite";
+      self.amPM.setAttribute("ariaLive", "polite");
       self.timeContainer.appendChild(self.amPM);
     }
 
@@ -1491,7 +1502,7 @@ function FlatpickrInstance(
         self.calendarContainer.classList.remove("open");
       }
       if (self._input !== undefined) {
-        self._input.ariaExpanded = "false";
+        self._input.setAttribute("ariaExpanded", "false");
         self._input.classList.remove("active");
       }
     }
@@ -1868,6 +1879,9 @@ function FlatpickrInstance(
 
         case 38:
         case 40:
+          if ((eventTarget as HTMLElement).tagName === "SELECT") {
+            break;
+          }
           e.preventDefault();
           const delta = e.keyCode === 40 ? 1 : -1;
           if (
@@ -2079,7 +2093,7 @@ function FlatpickrInstance(
 
     if (!wasOpen) {
       self.calendarContainer.classList.add("open");
-      self._input.ariaExpanded = "true";
+      self._input.setAttribute("ariaExpanded", "true");
       self._input.classList.add("active");
       triggerEvent("onOpen");
       positionCalendar(positionElement);
@@ -2482,10 +2496,13 @@ function FlatpickrInstance(
     if (t === undefined) return;
 
     const target = t as DayElement;
+    const newDate = target ? new Date(target.dateObj.getTime()) : self.latestSelectedDateObj as Date;
 
-    const selectedDate = (self.latestSelectedDateObj = new Date(
-      target.dateObj.getTime()
-    ));
+    if(self.latestSelectedDateObj !== newDate) {
+      self.latestSelectedDateObj = newDate;
+    }
+
+    const selectedDate = newDate;
 
     const shouldChangeMonth =
       (selectedDate.getMonth() < self.currentMonth ||
@@ -2792,10 +2809,10 @@ function FlatpickrInstance(
       self.altInput.type = "text";
 
       // add accessibility attributes
-      self.altInput.role = "combobox";
-      self.altInput.ariaHasPopup = "true";
-      self.altInput.ariaAutoComplete = "none";
-      self.altInput.ariaExpanded = "false";
+      self.altInput.setAttribute("role", "combobox");
+      self.altInput.setAttribute("ariaHasPopup", "true");
+      self.altInput.setAttribute("ariaAutoComplete", "none");
+      self.altInput.setAttribute("ariaExpanded", "false");
 
       self.input.setAttribute("type", "hidden");
 
