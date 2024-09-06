@@ -1693,7 +1693,11 @@ function FlatpickrInstance(
             e.preventDefault();
             updateTime();
             focusAndClose();
-          } else selectDate(e);
+          } else if ((eventTarget as HTMLElement).tagName === "SELECT") {
+            break;
+          } else {
+            selectDate(e)
+          };
 
           break;
 
