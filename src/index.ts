@@ -366,6 +366,11 @@ function FlatpickrInstance(
    */
   function onYearInput(event: KeyboardEvent & IncrementEvent) {
     const eventTarget = getEventTarget(event) as HTMLInputElement;
+
+    if(eventTarget !== self.yearElements[0]) {
+      return;
+    }
+
     const year = parseInt(eventTarget.value) + (event.delta || 0);
 
     if (
@@ -1688,7 +1693,11 @@ function FlatpickrInstance(
             e.preventDefault();
             updateTime();
             focusAndClose();
-          } else selectDate(e);
+          } else if ((eventTarget as HTMLElement).tagName === "SELECT") {
+            break;
+          } else {
+            selectDate(e)
+          };
 
           break;
 
@@ -1731,6 +1740,9 @@ function FlatpickrInstance(
 
         case 38:
         case 40:
+          if ((eventTarget as HTMLElement).tagName === "SELECT") {
+            break;
+          }
           e.preventDefault();
           const delta = e.keyCode === 40 ? 1 : -1;
           if (
@@ -2331,10 +2343,13 @@ function FlatpickrInstance(
     if (t === undefined) return;
 
     const target = t as DayElement;
+    const newDate = target ? new Date(target.dateObj.getTime()) : self.latestSelectedDateObj as Date;
 
-    const selectedDate = (self.latestSelectedDateObj = new Date(
-      target.dateObj.getTime()
-    ));
+    if(self.latestSelectedDateObj !== newDate) {
+      self.latestSelectedDateObj = newDate;
+    }
+
+    const selectedDate = newDate;
 
     const shouldChangeMonth =
       (selectedDate.getMonth() < self.currentMonth ||
