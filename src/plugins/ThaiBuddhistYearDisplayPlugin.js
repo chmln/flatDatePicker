@@ -300,7 +300,7 @@ Example =>
                     fp.formatDate = createDateFormatter(fp);
                     fp.parseDate = createDateParser({ config: fp.config, l10n: fp.l10n });
 
-                    fp.calendarContainer.classList.add.addClass("buddhist-calendar-flatpickr");
+                    fp.calendarContainer.classList.add("buddhist-calendar-flatpickr");
 
                 },
                 onValueUpdate: function () {
