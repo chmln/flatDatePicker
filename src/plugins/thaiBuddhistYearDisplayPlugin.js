@@ -1,4 +1,4 @@
-//ThaiBuddhistYearDisplayPlugin for flatpickr@^4.6.13
+//thaiBuddhistYearDisplayPlugin for flatpickr@^4.6.13
 //Plugin author: Chaiyaboon Sruayiam
 //Plugin author email: chaiyaboon.s@outlook.co.th
 //You can add character 'B' into 'dateFormat' flatpickr config on initial state to render Buddhist full year, e.g. 2543, 2556, 2563, and etc.
