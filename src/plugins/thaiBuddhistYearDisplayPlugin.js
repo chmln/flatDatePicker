@@ -1,11 +1,17 @@
 //thaiBuddhistYearDisplayPlugin for flatpickr@^4.6.13
 //Plugin author: Chaiyaboon Sruayiam
 //Plugin author email: chaiyaboon.s@outlook.co.th
-//You can add character 'B' into 'dateFormat' flatpickr config on initial state to render Buddhist full year, e.g. 2543, 2556, 2563, and etc.
+//You can add character 'B' or 'b' into 'dateFormat' flatpickr config on initial state to render Buddhist full year, e.g. 2543, 2556, 2563, and etc.
 /*
-Example =>
+Example #  =>
     let flatpickrInstance = this.flatpickr({
         "dateFormat": "d F B", <-- look at this one. Start with 'd' the day and then 'F' the full month and then 'B' the full Buddhist year.
+        "mode": "range",
+        "time_24hr": true,
+    });
+Example # 2 =>
+    let flatpickrInstance = this.flatpickr({
+        "dateFormat": "d F b", <-- look at this one. Start with 'd' the day and then 'F' the full month and then 'b' the last two digits of Buddhist year.
         "mode": "range",
         "time_24hr": true,
     });
@@ -120,7 +126,10 @@ Example =>
                 w: function (date) { return date.getDay(); },
                 // last two digits of year e.g. 16 for 2016
                 y: function (date) { return String(date.getFullYear()).substring(2); },
+                // full Buddhist year e.g. [2016 + 543 = 2559], padded (0001-9999)
                 B: function (date) { return String(date.getFullYear() + 543) },
+                // last two digits of Buddhist year e.g. 59 for [2016 + 543 = 2559]
+                b: function (date) { return String(date.getFullYear() + 543).substring(2); },
             };
 
             let createDateParser = function (_a) {
