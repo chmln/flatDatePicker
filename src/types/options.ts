@@ -92,7 +92,7 @@ export interface BaseOptions {
     selected dates together for the date input value.
   */
   conjunction: string;
-  
+
   /*
     If "mode" is "range" and rangeConjunction is set, this string will be used to join
     selected dates together for the date input value.

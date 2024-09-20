@@ -1705,7 +1705,7 @@ describe("flatpickr", () => {
     it("can set range conjunction", () => {
       createInstance({
         mode: "range",
-        rangeConjunction: ', '
+        rangeConjunction: ", ",
       });
 
       fp.setDate("2016-1-17");

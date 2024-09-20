@@ -2830,9 +2830,10 @@ function FlatpickrInstance(
       );
   }
 
-  function getDateRangeSeparator()
-  {
-    return typeof self.config.rangeConjunction === 'string' ? self.config.rangeConjunction : self.l10n.rangeSeparator;
+  function getDateRangeSeparator() {
+    return typeof self.config.rangeConjunction === "string"
+      ? self.config.rangeConjunction
+      : self.l10n.rangeSeparator;
   }
 
   /**
