@@ -1702,6 +1702,19 @@ describe("flatpickr", () => {
       expect(fp.input.value).toEqual("2016-01-13 to 2016-01-17");
     });
 
+    it("can set range conjunction", () => {
+      createInstance({
+        mode: "range",
+        rangeConjunction: ", ",
+      });
+
+      fp.setDate("2016-1-17");
+
+      simulate("click", fp.days.childNodes[17], { which: 1 }, MouseEvent);
+      expect(fp.selectedDates.length).toEqual(2);
+      expect(fp.input.value).toEqual("2016-01-13, 2016-01-17");
+    });
+
     it("adds disabled class to disabled prev/next month arrows", () => {
       const isArrowDisabled = (which: "prevMonthNav" | "nextMonthNav") =>
         fp[which].classList.contains("flatpickr-disabled");
