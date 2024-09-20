@@ -92,6 +92,12 @@ export interface BaseOptions {
     selected dates together for the date input value.
   */
   conjunction: string;
+  
+  /*
+    If "mode" is "range" and rangeConjunction is set, this string will be used to join
+    selected dates together for the date input value.
+  */
+  rangeConjunction: null | string;
 
   /*
     A string of characters which are used to define how the date will be displayed in the input box.
@@ -289,6 +295,7 @@ export interface ParsedOptions {
   clickOpens: boolean;
   closeOnSelect: boolean;
   conjunction: string;
+  rangeConjunction: null | string;
   dateFormat: string;
   defaultDate?: Date | Date[];
   defaultHour: number;
@@ -356,6 +363,7 @@ export const defaults: ParsedOptions = {
   clickOpens: true,
   closeOnSelect: true,
   conjunction: ", ",
+  rangeConjunction: null,
   dateFormat: "Y-m-d",
   defaultHour: 12,
   defaultMinute: 0,
