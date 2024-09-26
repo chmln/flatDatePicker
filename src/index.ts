@@ -483,7 +483,20 @@ function FlatpickrInstance(
         ) {
           return;
         }
-        const newDate = new Date(self._input.value);
+
+        // Get the input value
+        const inputValue = self._input.value.trim();
+        // With the input value, let's try to parse the date based on the defined altFormat
+        const newDate = self.parseDate(inputValue, self.config.altFormat) as Date;
+
+        // Check if the input is empty or the date is invalid, if so, prevent date to be set!
+        if (inputValue === "") {
+            return
+        } else if (isNaN(Number(newDate))) {
+            console.error("Inserted date is not valid");
+            return;
+        }
+
         setDate(newDate, true);
         break;
       // Close the calendar
