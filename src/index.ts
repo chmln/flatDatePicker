@@ -38,8 +38,6 @@ import { tokenRegex, monthToStr } from "./utils/formatting";
 
 import "./utils/polyfills";
 
-const DEBOUNCED_CHANGE_MS = 300;
-
 function FlatpickrInstance(
   element: HTMLElement,
   instanceConfig?: Options
@@ -428,7 +426,10 @@ function FlatpickrInstance(
     }
 
     const debouncedResize = debounce(onResize, 50);
-    self._debouncedChange = debounce(triggerChange, DEBOUNCED_CHANGE_MS);
+    self._debouncedChange = debounce(
+      triggerChange,
+      self.config.debouncedChangeMs
+    );
 
     if (self.daysContainer && !/iPhone|iPad|iPod/i.test(navigator.userAgent))
       bind(self.daysContainer, "mouseover", (e: MouseEvent) => {

@@ -290,6 +290,7 @@ export interface ParsedOptions {
   closeOnSelect: boolean;
   conjunction: string;
   dateFormat: string;
+  debouncedChangeMs: number;
   defaultDate?: Date | Date[];
   defaultHour: number;
   defaultMinute: number;
@@ -357,6 +358,7 @@ export const defaults: ParsedOptions = {
   closeOnSelect: true,
   conjunction: ", ",
   dateFormat: "Y-m-d",
+  debouncedChangeMs: 300,
   defaultHour: 12,
   defaultMinute: 0,
   defaultSeconds: 0,
