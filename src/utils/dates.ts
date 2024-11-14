@@ -88,8 +88,8 @@ export const createDateParser = ({ config = defaults, l10n = english }) => (
         const escaped = format[i - 1] === "\\" || isBackSlash;
 
         if (tokenRegex[token] && !escaped) {
-          regexStr += tokenRegex[token];
-          const match = new RegExp(regexStr).exec(date);
+          regexStr += tokenRegex[token].toLowerCase();
+          const match = new RegExp(regexStr).exec(date.toLowerCase());
           if (match && (matched = true)) {
             ops[token !== "Y" ? "push" : "unshift"]({
               fn: revFormat[token],
