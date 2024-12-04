@@ -1,4 +1,4 @@
-/* Slovenian locals for flatpickr */
+/* Norwegian locals for flatpickr */
 import { CustomLocale } from "../types/locale";
 import { FlatpickrFn } from "../types/instance";
 
@@ -9,17 +9,17 @@ const fp =
         l10ns: {},
       } as FlatpickrFn);
 
-export const Slovenian: CustomLocale = {
+export const NorwegianNynorsk: CustomLocale = {
   weekdays: {
-    shorthand: ["Ned", "Pon", "Tor", "Sre", "Čet", "Pet", "Sob"],
+    shorthand: ["Sø.", "Må.", "Ty.", "On.", "To.", "Fr.", "La."],
     longhand: [
-      "Nedelja",
-      "Ponedeljek",
-      "Torek",
-      "Sreda",
-      "Četrtek",
-      "Petek",
-      "Sobota",
+      "Søndag",
+      "Måndag",
+      "Tysdag",
+      "Onsdag",
+      "Torsdag",
+      "Fredag",
+      "Laurdag",
     ],
   },
 
@@ -27,41 +27,45 @@ export const Slovenian: CustomLocale = {
     shorthand: [
       "Jan",
       "Feb",
-      "Mar",
+      "Mars",
       "Apr",
-      "Maj",
-      "Jun",
-      "Jul",
-      "Avg",
+      "Mai",
+      "Juni",
+      "Juli",
+      "Aug",
       "Sep",
       "Okt",
       "Nov",
-      "Dec",
+      "Des",
     ],
     longhand: [
       "Januar",
       "Februar",
-      "Marec",
+      "Mars",
       "April",
-      "Maj",
-      "Junij",
-      "Julij",
-      "Avgust",
+      "Mai",
+      "Juni",
+      "Juli",
+      "August",
       "September",
       "Oktober",
       "November",
-      "December",
+      "Desember",
     ],
   },
 
   firstDayOfWeek: 1,
-  rangeSeparator: " do ",
+  rangeSeparator: " til ",
+  weekAbbreviation: "Veke",
+  scrollTitle: "Scroll for å endre",
+  toggleTitle: "Klikk for å veksle",
   time_24hr: true,
-  ordinal: function () {
+
+  ordinal: () => {
     return ".";
   },
 };
 
-fp.l10ns.sl = Slovenian;
+fp.l10ns.nn = NorwegianNynorsk;
 
 export default fp.l10ns;

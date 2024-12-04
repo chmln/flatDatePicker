@@ -54,7 +54,7 @@ export const Catalan: CustomLocale = {
     ],
   },
 
-  ordinal: nth => {
+  ordinal: (nth) => {
     const s = nth % 100;
     if (s > 3 && s < 21) return "è";
     switch (s % 10) {
@@ -72,9 +72,10 @@ export const Catalan: CustomLocale = {
   },
 
   firstDayOfWeek: 1,
+  rangeSeparator: " a ",
   time_24hr: true,
 };
 
-fp.l10ns.cat = Catalan;
+fp.l10ns.cat = fp.l10ns.ca = Catalan;
 
 export default fp.l10ns;

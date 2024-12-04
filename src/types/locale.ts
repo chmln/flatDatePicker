@@ -55,6 +55,7 @@ export type Locale = {
   toggleTitle: string;
   amPM: [string, string];
   yearAriaLabel: string;
+  monthAriaLabel: string;
   hourAriaLabel: string;
   minuteAriaLabel: string;
   time_24hr: boolean;
@@ -69,6 +70,7 @@ export type CustomLocale = {
   toggleTitle?: Locale["toggleTitle"];
   scrollTitle?: Locale["scrollTitle"];
   yearAriaLabel?: string;
+  monthAriaLabel?: string;
   hourAriaLabel?: string;
   minuteAriaLabel?: string;
   amPM?: Locale["amPM"];
@@ -117,7 +119,9 @@ export type key =
   | "bg"
   | "bn"
   | "bs"
+  | "ca"
   | "cat"
+  | "ckb"
   | "cs"
   | "cy"
   | "da"
@@ -136,6 +140,7 @@ export type key =
   | "hi"
   | "hr"
   | "hu"
+  | "hy"
   | "id"
   | "is"
   | "it"
@@ -151,6 +156,7 @@ export type key =
   | "ms"
   | "my"
   | "nl"
+  | "nn"
   | "no"
   | "oc"
   | "pa"
@@ -169,4 +175,6 @@ export type key =
   | "uk"
   | "vn"
   | "zh"
+  | "uz"
+  | "uz_latn"
   | "zh_tw";

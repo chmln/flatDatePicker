@@ -22,12 +22,21 @@ function confirmDatePlugin(pluginConfig: Config): Plugin {
   let confirmContainer: HTMLDivElement;
   const confirmButtonCSSClass = "flatpickr-confirm";
 
-  return function(fp: Instance) {
+  return function (fp: Instance) {
     if (fp.config.noCalendar || fp.isMobile) return {};
     return {
       onKeyDown(_: Date[], __: string, ___: Instance, e: KeyboardEvent) {
         const eventTarget = getEventTarget(e);
-        if (fp.config.enableTime && e.key === "Tab" && eventTarget === fp.amPM) {
+        const isTargetLastFocusableElement =
+          (!fp.config.time_24hr && eventTarget === fp.amPM) ||
+          (fp.config.time_24hr &&
+            ((fp.config.enableSeconds && eventTarget === fp.secondElement) ||
+              (!fp.config.enableSeconds && eventTarget === fp.minuteElement)));
+        if (
+          fp.config.enableTime &&
+          e.key === "Tab" &&
+          isTargetLastFocusableElement
+        ) {
           e.preventDefault();
           confirmContainer.focus();
         } else if (e.key === "Enter" && eventTarget === confirmContainer)
@@ -53,7 +62,7 @@ function confirmDatePlugin(pluginConfig: Config): Plugin {
       },
       ...(!config.showAlways
         ? {
-            onChange: function(_: Date[], dateStr: string) {
+            onChange: function (_: Date[], dateStr: string) {
               const showCondition =
                 fp.config.enableTime ||
                 fp.config.mode === "multiple" ||

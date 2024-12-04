@@ -43,11 +43,11 @@ export type RevFormatFn = (
 export type RevFormat = Record<string, RevFormatFn>;
 export const revFormat: RevFormat = {
   D: doNothing,
-  F: function(dateObj: Date, monthName: string, locale: Locale) {
+  F: function (dateObj: Date, monthName: string, locale: Locale) {
     dateObj.setMonth(locale.months.longhand.indexOf(monthName));
   },
   G: (dateObj: Date, hour: string) => {
-    dateObj.setHours(parseFloat(hour));
+    dateObj.setHours((dateObj.getHours() >= 12 ? 12 : 0) + parseFloat(hour));
   },
   H: (dateObj: Date, hour: string) => {
     dateObj.setHours(parseFloat(hour));
@@ -61,7 +61,7 @@ export const revFormat: RevFormat = {
         12 * int(new RegExp(locale.amPM[1], "i").test(amPM))
     );
   },
-  M: function(dateObj: Date, shortMonth: string, locale: Locale) {
+  M: function (dateObj: Date, shortMonth: string, locale: Locale) {
     dateObj.setMonth(locale.months.shorthand.indexOf(shortMonth));
   },
   S: (dateObj: Date, seconds: string) => {
@@ -69,7 +69,7 @@ export const revFormat: RevFormat = {
   },
   U: (_: Date, unixSeconds: string) => new Date(parseFloat(unixSeconds) * 1000),
 
-  W: function(dateObj: Date, weekNum: string, locale: Locale) {
+  W: function (dateObj: Date, weekNum: string, locale: Locale) {
     const weekNumber = parseInt(weekNum);
     const date = new Date(
       dateObj.getFullYear(),
@@ -93,7 +93,7 @@ export const revFormat: RevFormat = {
     dateObj.setDate(parseFloat(day));
   },
   h: (dateObj: Date, hour: string) => {
-    dateObj.setHours(parseFloat(hour));
+    dateObj.setHours((dateObj.getHours() >= 12 ? 12 : 0) + parseFloat(hour));
   },
   i: (dateObj: Date, minutes: string) => {
     dateObj.setMinutes(parseFloat(minutes));
@@ -121,13 +121,13 @@ export const revFormat: RevFormat = {
 
 export type TokenRegex = { [k in token]: string };
 export const tokenRegex: TokenRegex = {
-  D: "(\\w+)",
-  F: "(\\w+)",
+  D: "", // locale-dependent, setup on runtime
+  F: "", // locale-dependent, setup on runtime
   G: "(\\d\\d|\\d)",
   H: "(\\d\\d|\\d)",
   J: "(\\d\\d|\\d)\\w+",
   K: "", // locale-dependent, setup on runtime
-  M: "(\\w+)",
+  M: "", // locale-dependent, setup on runtime
   S: "(\\d\\d|\\d)",
   U: "(.+)",
   W: "(\\d\\d|\\d)",
@@ -137,7 +137,7 @@ export const tokenRegex: TokenRegex = {
   h: "(\\d\\d|\\d)",
   i: "(\\d\\d|\\d)",
   j: "(\\d\\d|\\d)",
-  l: "(\\w+)",
+  l: "", // locale-dependent, setup on runtime
   m: "(\\d\\d|\\d)",
   n: "(\\d\\d|\\d)",
   s: "(\\d\\d|\\d)",
@@ -155,14 +155,14 @@ export const formats: Formats = {
   Z: (date: Date) => date.toISOString(),
 
   // weekday name, short, e.g. Thu
-  D: function(date: Date, locale: Locale, options: ParsedOptions) {
+  D: function (date: Date, locale: Locale, options: ParsedOptions) {
     return locale.weekdays.shorthand[
       formats.w(date, locale, options) as number
     ];
   },
 
   // full month name e.g. January
-  F: function(date: Date, locale: Locale, options: ParsedOptions) {
+  F: function (date: Date, locale: Locale, options: ParsedOptions) {
     return monthToStr(
       (formats.n(date, locale, options) as number) - 1,
       false,
@@ -171,7 +171,7 @@ export const formats: Formats = {
   },
 
   // padded hour 1-12
-  G: function(date: Date, locale: Locale, options: ParsedOptions) {
+  G: function (date: Date, locale: Locale, options: ParsedOptions) {
     return pad(formats.h(date, locale, options));
   },
 
@@ -179,7 +179,7 @@ export const formats: Formats = {
   H: (date: Date) => pad(date.getHours()),
 
   // day (1-30) with ordinal suffix e.g. 1st, 2nd
-  J: function(date: Date, locale: Locale) {
+  J: function (date: Date, locale: Locale) {
     return locale.ordinal !== undefined
       ? date.getDate() + locale.ordinal(date.getDate())
       : date.getDate();
@@ -189,7 +189,7 @@ export const formats: Formats = {
   K: (date: Date, locale: Locale) => locale.amPM[int(date.getHours() > 11)],
 
   // shorthand month e.g. Jan, Sep, Oct, etc
-  M: function(date: Date, locale: Locale) {
+  M: function (date: Date, locale: Locale) {
     return monthToStr(date.getMonth(), true, locale);
   },
 
@@ -199,12 +199,12 @@ export const formats: Formats = {
   // unix timestamp
   U: (date: Date) => date.getTime() / 1000,
 
-  W: function(date: Date, _: Locale, options: ParsedOptions) {
+  W: function (date: Date, _: Locale, options: ParsedOptions) {
     return options.getWeek(date);
   },
 
-  // full year e.g. 2016
-  Y: (date: Date) => date.getFullYear(),
+  // full year e.g. 2016, padded (0001-9999)
+  Y: (date: Date) => pad(date.getFullYear(), 4),
 
   // day in month, padded (01-30)
   d: (date: Date) => pad(date.getDate()),
@@ -219,7 +219,7 @@ export const formats: Formats = {
   j: (date: Date) => date.getDate(),
 
   // weekday name, full, e.g. Thursday
-  l: function(date: Date, locale: Locale) {
+  l: function (date: Date, locale: Locale) {
     return locale.weekdays.longhand[date.getDay()];
   },
 

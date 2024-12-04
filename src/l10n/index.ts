@@ -8,6 +8,7 @@ import { Bosnian as bs } from "./bs";
 import { Bulgarian as bg } from "./bg";
 import { Bangla as bn } from "./bn";
 import { Catalan as cat } from "./cat";
+import { Kurdish as ckb } from "./ckb";
 import { Czech as cs } from "./cs";
 import { Welsh as cy } from "./cy";
 import { Danish as da } from "./da";
@@ -25,6 +26,7 @@ import { Hebrew as he } from "./he";
 import { Hindi as hi } from "./hi";
 import { Croatian as hr } from "./hr";
 import { Hungarian as hu } from "./hu";
+import { Armenian as hy } from "./hy";
 import { Indonesian as id } from "./id";
 import { Icelandic as is } from "./is";
 import { Italian as it } from "./it";
@@ -40,6 +42,7 @@ import { Mongolian as mn } from "./mn";
 import { Malaysian as ms } from "./ms";
 import { Burmese as my } from "./my";
 import { Dutch as nl } from "./nl";
+import { NorwegianNynorsk as nn } from "./nn";
 import { Norwegian as no } from "./no";
 import { Occitan as oc } from "./oc";
 import { Punjabi as pa } from "./pa";
@@ -56,9 +59,11 @@ import { Swedish as sv } from "./sv";
 import { Thai as th } from "./th";
 import { Turkish as tr } from "./tr";
 import { Ukrainian as uk } from "./uk";
+import { Uzbek as uz } from "./uz";
+import { UzbekLatin as uzLatn } from "./uz_latn";
 import { Vietnamese as vn } from "./vn";
 import { Mandarin as zh } from "./zh";
-import { MandarinTraditional as zh_tw } from "./zh-tw";
+import { MandarinTraditional as zhTw } from "./zh_tw";
 
 const l10n: Record<key, CustomLocale> = {
   ar,
@@ -68,6 +73,8 @@ const l10n: Record<key, CustomLocale> = {
   bg,
   bn,
   bs,
+  ca: cat,
+  ckb,
   cat,
   cs,
   cy,
@@ -87,6 +94,7 @@ const l10n: Record<key, CustomLocale> = {
   hi,
   hr,
   hu,
+  hy,
   id,
   is,
   it,
@@ -102,6 +110,7 @@ const l10n: Record<key, CustomLocale> = {
   ms,
   my,
   nl,
+  nn,
   no,
   oc,
   pa,
@@ -120,7 +129,9 @@ const l10n: Record<key, CustomLocale> = {
   uk,
   vn,
   zh,
-  zh_tw,
+  zh_tw: zhTw,
+  uz,
+  uz_latn: uzLatn,
 };
 
 export default l10n;

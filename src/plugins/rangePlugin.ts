@@ -12,7 +12,7 @@ declare global {
 }
 
 function rangePlugin(config: Config = {}): Plugin {
-  return function(fp) {
+  return function (fp) {
     let dateFormat = "",
       secondInput: HTMLInputElement,
       _secondInputFocused: boolean,
@@ -49,26 +49,28 @@ function rangePlugin(config: Config = {}): Plugin {
 
       secondInput.setAttribute("data-fp-omit", "");
 
-      fp._bind(secondInput, ["focus", "click"], () => {
-        if (fp.selectedDates[1]) {
-          fp.latestSelectedDateObj = fp.selectedDates[1];
-          fp._setHoursFromDate(fp.selectedDates[1]);
-          fp.jumpToDate(fp.selectedDates[1]);
-        }
+      if (fp.config.clickOpens) {
+        fp._bind(secondInput, ["focus", "click"], () => {
+          if (fp.selectedDates[1]) {
+            fp.latestSelectedDateObj = fp.selectedDates[1];
+            fp._setHoursFromDate(fp.selectedDates[1]);
+            fp.jumpToDate(fp.selectedDates[1]);
+          }
 
-        _secondInputFocused = true;
-        fp.isOpen = false;
-        fp.open(
-          undefined,
-          config.position === "left" ? fp._input : secondInput
-        );
-      });
+          _secondInputFocused = true;
+          fp.isOpen = false;
+          fp.open(
+            undefined,
+            config.position === "left" ? fp._input : secondInput
+          );
+        });
 
-      fp._bind(fp._input, ["focus", "click"], (e: FocusEvent) => {
-        e.preventDefault();
-        fp.isOpen = false;
-        fp.open();
-      });
+        fp._bind(fp._input, ["focus", "click"], (e: FocusEvent) => {
+          e.preventDefault();
+          fp.isOpen = false;
+          fp.open();
+        });
+      }
 
       if (fp.config.allowInput)
         fp._bind(secondInput, "keydown", (e: KeyboardEvent) => {
@@ -174,13 +176,22 @@ function rangePlugin(config: Config = {}): Plugin {
             ? [_prevDates[0], newSelectedDate]
             : [newSelectedDate, _prevDates[1]];
 
+          if (newDates[0].getTime() > newDates[1].getTime()) {
+            if (_secondInputFocused) {
+              newDates[0] = newDates[1];
+            } else {
+              newDates[1] = newDates[0];
+            }
+          }
+
           fp.setDate(newDates, false);
           _prevDates = [...newDates];
         }
 
-        [fp._input.value = "", secondInput.value = ""] = fp.selectedDates.map(
-          d => fp.formatDate(d, dateFormat)
-        );
+        [
+          fp._input.value = "",
+          secondInput.value = "",
+        ] = fp.selectedDates.map((d) => fp.formatDate(d, dateFormat));
       },
     };
 
