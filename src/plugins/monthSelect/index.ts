@@ -337,6 +337,8 @@ function monthSelectPlugin(pluginConfig?: Partial<Config>): Plugin {
         bindEvents,
         setCurrentlySelected,
         () => {
+          fp.config.onOpen.push(buildMonths);
+          fp.config.onOpen.push(selectYear);
           fp.config.onClose.push(closeHook);
           fp.loadedPlugins.push("monthSelect");
         },
