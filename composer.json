@@ -1,0 +1,11 @@
+{
+    "name": "flatpickr/flatpickr",
+    "type": "library",
+    "description": "Lightweight, powerful javascript datetimepicker with no dependencies .",
+    "keywords": [
+        "datepicker",
+        "js"
+    ],
+    "homepage": "https://github.com/flatpickr/flatpickr",
+    "license": "MIT"
+}
